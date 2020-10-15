@@ -42,33 +42,35 @@ namespace BankingApplication
             annualInterestRate = interestRate;
         }
 
-        public double MakeDeposit(double amount)
+        void IAccount.MakeDeposit(double amount)
         {
             numberOfDeposit++;
-
-            return currentBalance + amount;
+            currentBalance += amount;
         }
 
-        public double Withdrawal(double amount)
+        void IAccount.MakeWithdrawal(double amount)
         {
             numberOfWithdrawal++;
-
-            return currentBalance - amount;
+            currentBalance -= amount;
         }
 
-        public double CalculateInterest()
+        void IAccount.CalculateInterest()
         {
             double monthlyInterestRate = annualInterestRate / 12;
             double monthlyInterest = currentBalance * monthlyInterestRate;
             double balance = currentBalance + monthlyInterest;
-
-            return balance;
         }
 
-        public string CloseAndReport()
+        string IAccount.CloseAndReport()
         {
-            double previousBalance;
-            double newBalance = currentBalance - serviceCharge;
+            currentBalance -= serviceCharge;
+            CalculateInterest();
+
+            string str;
+
+            numberOfDeposit = 0;
+            numberOfWithdrawal = 0;
+
         }
     }
 }

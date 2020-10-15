@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace BankingApplication
 {
-    class IAccount
+    interface IAccount
     {
+        void MakeWithdrawal(double amount);
+        void MakeDeposit(double amount);
+        void CalculateInterest();
+        string CloseAndReport();
     }
 }

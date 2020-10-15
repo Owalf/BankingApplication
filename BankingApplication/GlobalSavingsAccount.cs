@@ -12,7 +12,7 @@ namespace BankingApplication
         { 
         }
 
-        double IExchangeable.USValue(double rate)
+        public double USValue(double rate)
         {
             return currentBalance * rate;
         }

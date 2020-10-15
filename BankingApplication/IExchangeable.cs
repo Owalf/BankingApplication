@@ -6,12 +6,8 @@ using System.Threading.Tasks;
 
 namespace BankingApplication
 {
-    class Program
+    interface IExchangeable
     {
-        static void Main(string[] args)
-        {
-            string Option;
-            
-        }
+        double USValue(double rate);
     }
 }

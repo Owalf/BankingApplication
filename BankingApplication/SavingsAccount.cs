@@ -8,17 +8,45 @@ namespace BankingApplication
 {
     class SavingsAccount : Account, IAccount
     {
-        public override void makeWithdraw()
+        public SavingsAccount(double val1, double val2) : base(val1, val2)
         {
-            if (!Account.Status = "Inactive")
+        }
+        public void MakeDeposit(double amount)
+        {
+            if(CurrentBalance + amount > 25)
             {
-
+                base.MakeDeposit(amount);
             }
-
             else
-                return "Unable to make a withdrawal";
+            {
+                base.MakeDeposit(amount);
+            }
+            
         }
 
-    
+        public void MakeWithdrawal(double amount)
+        {
+            if(CurrentBalance - amount > 25)
+            {
+                base.MakeWithdrawal(amount);
+            }
+            else
+            {
+                base.MakeWithdrawal(amount);
+            }
+        }
+
+        public void CloseAndReport()
+        {
+            if(numberOfWithdrawal > 4)
+            {
+                serviceCharge += 1;
+                base.CloseAndReport();
+            }
+            else
+            {
+                base.CloseAndReport();
+            }
+        }
     }
 }

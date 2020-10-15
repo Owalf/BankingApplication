@@ -35,10 +35,9 @@ namespace BankingApplication
             set { currentBalance = value; }
         }
 
-        public Account(double sbalance, double cbalance, double interestRate)
+        public Account(double balance, double interestRate)
         {
-            startingBalance = sbalance;
-            currentBalance = cbalance;
+            startingBalance = balance;
             annualInterestRate = interestRate;
         }
 
@@ -67,16 +66,15 @@ namespace BankingApplication
 
             CalculateInterest();
 
-
             numberOfDeposit = 0;
             numberOfWithdrawal = 0;
             serviceCharge = 0;
 
             string str;
             return str = "Previous balance: " + startingBalance +
-                         "New balance: " + currentBalance +
-                         "The variation % of change from the starting to the current balances: " + ((currentBalance - startingBalance) / startingBalance * 100) +
-                         "More details: " + ""
+                         "\nNew balance: " + currentBalance +
+                         "\nThe variation % of change from the starting to the current balances: " + ((currentBalance - startingBalance) / startingBalance * 100) +
+                         "\nMore details: " + ""
                          ;
         }
     }

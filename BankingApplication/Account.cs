@@ -9,15 +9,15 @@ namespace BankingApplication
 {
     abstract class Account : IAccount
     {
-        double startingBalance;
-        double currentBalance;
-        double totalDepositAmount;
-        int numberOfDeposit;
-        double totalWithdrawalAmount;
-        int numberOfWithdrawal;
-        double annualInterestRate;
-        double serviceCharge;
-        enum Status
+        protected double startingBalance;
+        protected double currentBalance;
+        protected double totalDepositAmount;
+        protected int numberOfDeposit;
+        protected double totalWithdrawalAmount;
+        protected int numberOfWithdrawal;
+        protected double annualInterestRate;
+        protected double serviceCharge;
+        protected enum Status
         {
             Active,
             Inactive
@@ -42,35 +42,42 @@ namespace BankingApplication
             annualInterestRate = interestRate;
         }
 
-        void IAccount.MakeDeposit(double amount)
+        public void MakeDeposit(double amount)
         {
             numberOfDeposit++;
             currentBalance += amount;
         }
 
-        void IAccount.MakeWithdrawal(double amount)
+        public void MakeWithdrawal(double amount)
         {
             numberOfWithdrawal++;
             currentBalance -= amount;
         }
 
-        void IAccount.CalculateInterest()
+        public void CalculateInterest()
         {
             double monthlyInterestRate = annualInterestRate / 12;
             double monthlyInterest = currentBalance * monthlyInterestRate;
             double balance = currentBalance + monthlyInterest;
         }
 
-        string IAccount.CloseAndReport()
+        public string CloseAndReport()
         {
             currentBalance -= serviceCharge;
+
             CalculateInterest();
 
-            string str;
 
             numberOfDeposit = 0;
             numberOfWithdrawal = 0;
+            serviceCharge = 0;
 
+            string str;
+            return str = "Previous balance: " + startingBalance +
+                         "New balance: " + currentBalance +
+                         "The variation % of change from the starting to the current balances: " + ((currentBalance - startingBalance) / startingBalance * 100) +
+                         "More details: " + ""
+                         ;
         }
     }
 }

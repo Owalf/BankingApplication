@@ -15,7 +15,7 @@ namespace BankingApplication
         }
         public override void MakeDeposit(double amount)
         {
-            if(CurrentBalance + amount >= 25)
+            if(currentBalance + amount >= 25)
             {
                 Status pos = Status.Active;
                 base.MakeDeposit(amount);
@@ -34,7 +34,7 @@ namespace BankingApplication
 
         public override void MakeWithdrawal(double amount)
         {
-            if(CurrentBalance - amount >= 25)
+            if(currentBalance - amount >= 25)
             {
                 Status pos = Status.Active;
                 base.MakeWithdrawal(amount);

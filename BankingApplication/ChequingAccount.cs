@@ -21,7 +21,7 @@ namespace BankingApplication
 
         public override void MakeWithdrawal(double amount)
         {
-            if (CurrentBalance - amount < 0)
+            if (currentBalance - amount < 0)
             {
                 Status pos = Status.Inactive;
                 currentBalance -= 15;

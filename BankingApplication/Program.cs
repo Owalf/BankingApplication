@@ -72,7 +72,7 @@ namespace BankingApplication
                                 savings.MakeWithdrawal(withdraw);
                                 break;
                             case "C":
-                                savings.CloseAndReport();
+                                Console.WriteLine(savings.CloseAndReport());
                                 break;
                             case "R":
                                 break;
@@ -122,7 +122,7 @@ namespace BankingApplication
                                 chequing.MakeWithdrawal(withdraw);
                                 break;
                             case "C":
-                                chequing.CloseAndReport();
+                                Console.WriteLine(chequing.CloseAndReport());
                                 break;
                             case "R":
                                 break;
@@ -173,7 +173,7 @@ namespace BankingApplication
                                 globalSavings.MakeWithdrawal(withdraw);
                                 break;
                             case "C":
-                                globalSavings.CloseAndReport();
+                                Console.WriteLine(globalSavings.CloseAndReport());
                                 break;
                             case "D":
                                 Console.WriteLine("The balance in USD is: " + globalSavings.USValue(0.76));

@@ -73,12 +73,11 @@ namespace BankingApplication
             numberOfWithdrawal = 0;
             serviceCharge = 0;
 
-            string str;
-            return str = "Previous balance: " + startingBalance +
-                         "\nNew balance: " + currentBalance +
-                         "\nThe variation % of change from the starting to the current balances: " + ((currentBalance - startingBalance) / startingBalance * 100) +
-                         "\nMore details: " + ""
-                         ;
+            string str = "\nPrevious balance: " + startingBalance +
+                         "$\nNew balance: " + currentBalance +
+                         "$\nThe percentage of change from the starting balance to the current balance: " + ((currentBalance - startingBalance) / startingBalance * 100) +
+                         "%\nMore details: \n";
+            return str;
         }
     }
 }

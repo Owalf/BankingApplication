@@ -46,12 +46,13 @@ namespace BankingApplication
         {
             numberOfDeposit++;
             currentBalance += amount;
+
         }
 
         public void MakeWithdrawal(double amount)
         {
             numberOfWithdrawal++;
-            currentBalance -= (startingBalance);
+            currentBalance -= amount;
         }
 
         public void CalculateInterest()

@@ -34,8 +34,7 @@ namespace BankingApplication
 
         public void CloseAndReport()
         {
-            serviceCharge += 5;
-            serviceCharge += 0.1;
+            serviceCharge = 0.1 * numberOfWithdrawal + 5;
             base.CloseAndReport();
         }
     }

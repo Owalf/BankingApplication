@@ -76,8 +76,36 @@ namespace BankingApplication
             string str = "\nPrevious balance: " + startingBalance +
                          "$\nNew balance: " + (currentBalance + startingBalance) +
                          "$\nThe percentage of change from the starting balance to the current balance: " + ((currentBalance) / startingBalance * 100) +
-                         "%\nMore details: \n" + "Number of withdrawals: " + numberOfWithdrawal;
+                         "%\nMore details: " +  "\nMonthly Interest Rate: " + (annualInterestRate / 12) +
+                         "%\nAnnual Interest Rate: " + annualInterestRate +
+                         "%\nNumber of withdrawals: " + numberOfWithdrawal;
+                         ;
             return str;
+        }
+
+        public virtual double getPercentageChange() {
+
+            return ((currentBalance) / startingBalance * 100);
+
+
+        }
+
+        public virtual uint toNAMoneyFormat(bool RoundUp, bool RoundDown)
+        {
+            if(RoundUp = true)
+            {
+                double value = Math.Round(currentBalance);
+
+
+                string formatted = value.ToString("{0:C}");
+                uint vOut = Convert.ToUInt32(formatted);
+
+                return vOut;
+            }
+            else
+            {
+                return ;
+            }
         }
     }
 }

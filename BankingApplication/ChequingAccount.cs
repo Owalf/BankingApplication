@@ -39,6 +39,7 @@ namespace BankingApplication
             serviceCharge = 0.1 * numberOfWithdrawal + 5;
             Console.WriteLine("Monthly Service Charge: " + serviceCharge);
             return base.CloseAndReport();
+            //+ "\nThe percentage of change from the starting balance to the current balance: " + getPercentageChange() + "%"
         }
     }
 }

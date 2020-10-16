@@ -23,7 +23,6 @@ namespace BankingApplication
             }
             else
             {
-                Console.WriteLine("Account is Inactive");
                 base.MakeDeposit(amount);
                 Console.WriteLine("You have successfully deposited " + ExtensionMethods.ToNAMoneyFormat(amount, true) + " to your savings account.\nYour current balance is now " + ExtensionMethods.ToNAMoneyFormat(currentBalance, true) + "\nNumber of deposits: " + numberOfDeposit);
             }

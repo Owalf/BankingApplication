@@ -18,6 +18,7 @@ namespace BankingApplication
         protected int numberOfWithdrawal;
         protected double annualInterestRate;
         protected double serviceCharge = 0;
+
         protected enum Status
         {
             Active,

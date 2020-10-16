@@ -38,11 +38,13 @@ namespace BankingApplication
             {
                 Status pos = Status.Active;
                 base.MakeWithdrawal(amount);
+                Console.WriteLine("You have successfully withdrawn " + amount + "$ from your savings account.\nYour current balance is now " + currentBalance + "$");
             }
             else
             {
                 Status pos = Status.Inactive;
                 base.MakeWithdrawal(amount);
+                Console.WriteLine("You have successfully withdrawn " + amount + "$ from your savings account.\nYour current balance is now " + currentBalance + "$");
             }
         }
 

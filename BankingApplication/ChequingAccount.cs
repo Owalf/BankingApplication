@@ -12,14 +12,14 @@ namespace BankingApplication
         {
         }
 
-        public void MakeDeposit(double amount)
+        public override void MakeDeposit(double amount)
         {
             Status pos = Status.Active;
             base.MakeDeposit(amount);
             Console.WriteLine("You have successfully deposited " + amount + "$ to your chequing account.\nYour current balance is now " + currentBalance + "$");
         }
 
-        public void MakeWithdrawal(double amount)
+        public override void MakeWithdrawal(double amount)
         {
             if (CurrentBalance - amount < 0)
             {
@@ -34,10 +34,10 @@ namespace BankingApplication
             }
         }
 
-        public void CloseAndReport()
+        public override string CloseAndReport()
         {
             serviceCharge = 0.1 * numberOfWithdrawal + 5;
-            base.CloseAndReport();
+            return base.CloseAndReport();
         }
     }
 }

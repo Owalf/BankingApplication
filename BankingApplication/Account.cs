@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace BankingApplication
@@ -16,7 +17,7 @@ namespace BankingApplication
         protected double totalWithdrawalAmount;
         protected int numberOfWithdrawal;
         protected double annualInterestRate;
-        protected double serviceCharge;
+        protected double serviceCharge = 0;
         protected enum Status
         {
             Active,
@@ -50,7 +51,7 @@ namespace BankingApplication
         public void MakeWithdrawal(double amount)
         {
             numberOfWithdrawal++;
-            currentBalance -= amount;
+            currentBalance -= (startingBalance);
         }
 
         public void CalculateInterest()

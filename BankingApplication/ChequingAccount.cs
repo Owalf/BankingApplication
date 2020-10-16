@@ -14,6 +14,7 @@ namespace BankingApplication
 
         public void MakeDeposit(double amount)
         {
+            Status pos = Status.Active;
             base.MakeDeposit(amount);
         }
 
@@ -21,6 +22,7 @@ namespace BankingApplication
         {
             if (CurrentBalance - amount < 0)
             {
+                Status pos = Status.Inactive;
                 currentBalance -= 15;
                 Console.WriteLine("Nothing has been withdrawn because the balance is under 0$.");
             }

@@ -15,10 +15,12 @@ namespace BankingApplication
         {
             if(CurrentBalance + amount > 25)
             {
+                Status pos = Status.Active;
                 base.MakeDeposit(amount);
             }
             else
             {
+                Status pos = Status.Inactive;
                 base.MakeDeposit(amount);
             }
             
@@ -28,10 +30,12 @@ namespace BankingApplication
         {
             if(CurrentBalance - amount > 25)
             {
+                Status pos = Status.Active;
                 base.MakeWithdrawal(amount);
             }
             else
             {
+                Status pos = Status.Inactive;
                 base.MakeWithdrawal(amount);
             }
         }

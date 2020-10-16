@@ -40,6 +40,7 @@ namespace BankingApplication
         public Account(double balance, double interestRate)
         {
             startingBalance = balance;
+            currentBalance += startingBalance;
             annualInterestRate = interestRate;
         }
 
@@ -74,8 +75,8 @@ namespace BankingApplication
             serviceCharge = 0;
 
             string str = "\nPrevious balance: " + startingBalance +
-                         "$\nNew balance: " + (currentBalance + startingBalance) +
-                         "$\nThe percentage of change from the starting balance to the current balance: " + ((currentBalance) / startingBalance * 100) +
+                         "$\nNew balance: " + currentBalance +
+                         "$\nThe percentage of change from the starting balance to the current balance: " + ((currentBalance - startingBalance) / startingBalance * 100) +
                          "%\nMore details: \n" + "Number of withdrawals: " + numberOfWithdrawal;
             return str;
         }

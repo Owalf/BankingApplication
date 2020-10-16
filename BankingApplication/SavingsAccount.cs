@@ -20,14 +20,14 @@ namespace BankingApplication
                 Status pos = Status.Active;
                 base.MakeDeposit(amount);
 
-                Console.WriteLine("You have successfully deposited " + amount + "$ to your savings account.\nYour current balance is now " + (currentBalance + startingBalance) + "$\n" + "Number of deposits: " + numberOfDeposit);
+                Console.WriteLine("You have successfully deposited " + amount + "$ to your savings account.\nYour current balance is now " + currentBalance + "$\n" + "Number of deposits: " + numberOfDeposit);
             }
             else
             {
                 Status pos = Status.Inactive;
                 Console.WriteLine("Account is Inactive");
                 base.MakeDeposit(amount);
-                Console.WriteLine("You have successfully deposited " + amount + "$ to your savings account.\nYour current balance is now " + (currentBalance + startingBalance) + "$\n" + "Number of deposits: " + numberOfDeposit);
+                Console.WriteLine("You have successfully deposited " + amount + "$ to your savings account.\nYour current balance is now " + currentBalance + "$\n" + "Number of deposits: " + numberOfDeposit);
             }
             
         }
@@ -38,13 +38,13 @@ namespace BankingApplication
             {
                 Status pos = Status.Active;
                 base.MakeWithdrawal(amount);
-                Console.WriteLine("You have successfully withdrawn " + amount + "$ from your savings account.\nYour current balance is now " + (currentBalance + startingBalance) + "$\n" + "Number of withdrawals: " + numberOfWithdrawal);
+                Console.WriteLine("You have successfully withdrawn " + amount + "$ from your savings account.\nYour current balance is now " + currentBalance + "$\n" + "Number of withdrawals: " + numberOfWithdrawal);
             }
             else
             {
                 Status pos = Status.Inactive;
                 base.MakeWithdrawal(amount);
-                Console.WriteLine("You have successfully withdrawn " + amount + "$ from your savings account.\nYour current balance is now " + (currentBalance + startingBalance) + "$\n" + "Number of withdrawals: " + numberOfWithdrawal);
+                Console.WriteLine("You have successfully withdrawn " + amount + "$ from your savings account.\nYour current balance is now " + currentBalance + "$\n" + "Number of withdrawals: " + numberOfWithdrawal);
             }
         }
 

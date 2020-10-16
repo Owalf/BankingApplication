@@ -50,12 +50,24 @@ namespace BankingApplication
                             case "A":
                                 Console.WriteLine("How much do you want to deposit?");
                                 string depositAmount = Console.ReadLine();
+                                while (!double.TryParse(depositAmount, out double enterADamnNumberPlease))
+                                {
+                                    Console.WriteLine("Enter a numeric value for the amount you deposit.");
+                                    depositAmount = Console.ReadLine();
+
+                                }
                                 double.TryParse(depositAmount, out double deposit);
                                 savings.MakeDeposit(deposit);
                                 break;
                             case "B":
                                 Console.WriteLine("How much do you want to withdraw?");
                                 string withdrawAmount = Console.ReadLine();
+                                while (!double.TryParse(withdrawAmount, out double enterADamnNumberPlease))
+                                {
+                                    Console.WriteLine("Enter a numeric value for the amount you withdraw.");
+                                    withdrawAmount = Console.ReadLine();
+
+                                }
                                 double.TryParse(withdrawAmount, out double withdraw);
                                 savings.MakeWithdrawal(withdraw);
                                 break;
@@ -88,12 +100,24 @@ namespace BankingApplication
                             case "A":
                                 Console.WriteLine("How much do you want to deposit?");
                                 string depositAmount = Console.ReadLine();
+                                while (!double.TryParse(depositAmount, out double enterADamnNumberPlease))
+                                {
+                                    Console.WriteLine("Enter a numeric value for the amount you deposit.");
+                                    depositAmount = Console.ReadLine();
+
+                                }
                                 double.TryParse(depositAmount, out double deposit);
                                 chequing.MakeDeposit(deposit);
                                 break;
                             case "B":
                                 Console.WriteLine("How much do you want to withdraw?");
                                 string withdrawAmount = Console.ReadLine();
+                                while (!double.TryParse(withdrawAmount, out double enterADamnNumberPlease))
+                                {
+                                    Console.WriteLine("Enter a numeric value for the amount you withdraw.");
+                                    withdrawAmount = Console.ReadLine();
+
+                                }
                                 double.TryParse(withdrawAmount, out double withdraw);
                                 chequing.MakeWithdrawal(withdraw);
                                 break;
@@ -127,12 +151,24 @@ namespace BankingApplication
                             case "A":
                                 Console.WriteLine("How much do you want to deposit?");
                                 string depositAmount = Console.ReadLine();
+                                while (!double.TryParse(depositAmount, out double enterADamnNumberPlease))
+                                {
+                                    Console.WriteLine("Enter a numeric value for the amount you deposit.");
+                                    depositAmount = Console.ReadLine();
+
+                                }
                                 double.TryParse(depositAmount, out double deposit);
                                 globalSavings.MakeDeposit(deposit);
                                 break;
                             case "B":
                                 Console.WriteLine("How much do you want to withdraw?");
                                 string withdrawAmount = Console.ReadLine();
+                                while (!double.TryParse(withdrawAmount, out double enterADamnNumberPlease))
+                                {
+                                    Console.WriteLine("Enter a numeric value for the amount you withdraw.");
+                                    withdrawAmount = Console.ReadLine();
+
+                                }
                                 double.TryParse(withdrawAmount, out double withdraw);
                                 globalSavings.MakeWithdrawal(withdraw);
                                 break;

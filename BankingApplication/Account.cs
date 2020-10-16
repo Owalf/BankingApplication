@@ -43,27 +43,27 @@ namespace BankingApplication
             annualInterestRate = interestRate;
         }
 
-        public void MakeDeposit(double amount)
+        public virtual void MakeDeposit(double amount)
         {
             numberOfDeposit++;
             currentBalance += amount;
 
         }
 
-        public void MakeWithdrawal(double amount)
+        public virtual void MakeWithdrawal(double amount)
         {
             numberOfWithdrawal++;
             currentBalance -= amount;
         }
 
-        public void CalculateInterest()
+        public virtual void CalculateInterest()
         {
             double monthlyInterestRate = annualInterestRate / 12;
             double monthlyInterest = currentBalance * monthlyInterestRate;
             double balance = currentBalance + monthlyInterest;
         }
 
-        public string CloseAndReport()
+        public virtual string CloseAndReport()
         {
             currentBalance -= serviceCharge;
 

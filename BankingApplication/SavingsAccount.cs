@@ -13,7 +13,7 @@ namespace BankingApplication
             startingBalance = val1;
             annualInterestRate = val2;
         }
-        public void MakeDeposit(double amount)
+        public override void MakeDeposit(double amount)
         {
             if(CurrentBalance + amount >= 25)
             {
@@ -32,7 +32,7 @@ namespace BankingApplication
             
         }
 
-        public void MakeWithdrawal(double amount)
+        public override void MakeWithdrawal(double amount)
         {
             if(CurrentBalance - amount >= 25)
             {
@@ -48,16 +48,16 @@ namespace BankingApplication
             }
         }
 
-        public void CloseAndReport()
+        public override string CloseAndReport()
         {
             if(numberOfWithdrawal > 4)
             {
                 serviceCharge += 1;
-                base.CloseAndReport();
+                return base.CloseAndReport();
             }
             else
             {
-                base.CloseAndReport();
+                return base.CloseAndReport();
             }
         }
     }

@@ -16,7 +16,7 @@ namespace BankingApplication
         {
             Status pos = Status.Active;
             base.MakeDeposit(amount);
-            Console.WriteLine("You have successfully deposited " + amount + "$ to your chequing account.\nYour current balance is now " + currentBalance + "$\n" + "Number of deposits: " + numberOfDeposit);
+            Console.WriteLine("You have successfully deposited " + ExtensionMethods.ToNAMoneyFormat(amount, true) + " to your chequing account.\nYour current balance is now " + ExtensionMethods.ToNAMoneyFormat(currentBalance, true) + "\nNumber of deposits: " + numberOfDeposit);
         }
 
         public override void MakeWithdrawal(double amount)
@@ -24,22 +24,22 @@ namespace BankingApplication
             if (currentBalance - amount < 0)
             {
                 Status pos = Status.Inactive;
-                currentBalance -= 15;
-                Console.WriteLine("Nothing has been withdrawn because the balance is under 0$.");
+                serviceCharge = 15;
+                currentBalance -= serviceCharge;
+                Console.WriteLine("Nothing has been withdrawn because the balance will go under $0, a service fee of " + ExtensionMethods.ToNAMoneyFormat(serviceCharge, true) + " will be taken from your account.\nYour current balance is now " + ExtensionMethods.ToNAMoneyFormat((currentBalance), true));
             }
             else
             {
                 base.MakeWithdrawal(amount);
-                Console.WriteLine("You have successfully withdrawn " + amount + "$ from your chequing account.\nYour current balance is now " + currentBalance + "$\n" + "Number of withdrawals: " + numberOfWithdrawal);
+                Console.WriteLine("You have successfully withdrawn " + ExtensionMethods.ToNAMoneyFormat(amount, true) + " from your chequing account.\nYour current balance is now " + ExtensionMethods.ToNAMoneyFormat(currentBalance, true) + "\nNumber of withdrawals: " + numberOfWithdrawal);
             }
         }
 
         public override string CloseAndReport()
         {
-            serviceCharge = 0.1 * numberOfWithdrawal + 5;
-            Console.WriteLine("Monthly Service Charge: " + serviceCharge);
+            serviceCharge += 0.1 * numberOfWithdrawal + 5;
+            Console.WriteLine("Monthly Service Charge: " + ExtensionMethods.ToNAMoneyFormat(serviceCharge, true));
             return base.CloseAndReport();
-            //+ "\nThe percentage of change from the starting balance to the current balance: " + getPercentageChange() + "%"
         }
     }
 }

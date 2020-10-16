@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,8 +11,6 @@ namespace BankingApplication
     {
         public SavingsAccount(double val1, double val2) : base(val1, val2)
         {
-            startingBalance = val1;
-            annualInterestRate = val2;
         }
         public override void MakeDeposit(double amount)
         {
@@ -19,15 +18,14 @@ namespace BankingApplication
             {
                 Status pos = Status.Active;
                 base.MakeDeposit(amount);
-
-                Console.WriteLine("You have successfully deposited " + amount + "$ to your savings account.\nYour current balance is now " + currentBalance + "$\n" + "Number of deposits: " + numberOfDeposit);
+                Console.WriteLine("You have successfully deposited " + ExtensionMethods.ToNAMoneyFormat(amount, true) + " to your savings account.\nYour current balance is now " + ExtensionMethods.ToNAMoneyFormat(currentBalance, true) + "\nNumber of deposits: " + numberOfDeposit);
             }
             else
             {
                 Status pos = Status.Inactive;
                 Console.WriteLine("Account is Inactive");
                 base.MakeDeposit(amount);
-                Console.WriteLine("You have successfully deposited " + amount + "$ to your savings account.\nYour current balance is now " + currentBalance + "$\n" + "Number of deposits: " + numberOfDeposit);
+                Console.WriteLine("You have successfully deposited " + ExtensionMethods.ToNAMoneyFormat(amount, true) + " to your savings account.\nYour current balance is now " + ExtensionMethods.ToNAMoneyFormat(currentBalance, true) + "\nNumber of deposits: " + numberOfDeposit);
             }
             
         }
@@ -38,13 +36,13 @@ namespace BankingApplication
             {
                 Status pos = Status.Active;
                 base.MakeWithdrawal(amount);
-                Console.WriteLine("You have successfully withdrawn " + amount + "$ from your savings account.\nYour current balance is now " + currentBalance + "$\n" + "Number of withdrawals: " + numberOfWithdrawal);
+                Console.WriteLine("You have successfully withdrawn " + ExtensionMethods.ToNAMoneyFormat(amount, true) + " from your savings account.\nYour current balance is now " + ExtensionMethods.ToNAMoneyFormat(currentBalance, true) + "\nNumber of withdrawals: " + numberOfWithdrawal);
             }
             else
             {
                 Status pos = Status.Inactive;
                 base.MakeWithdrawal(amount);
-                Console.WriteLine("You have successfully withdrawn " + amount + "$ from your savings account.\nYour current balance is now " + currentBalance + "$\n" + "Number of withdrawals: " + numberOfWithdrawal);
+                Console.WriteLine("You have successfully withdrawn " + ExtensionMethods.ToNAMoneyFormat(amount, true) + " from your savings account.\nYour current balance is now " + ExtensionMethods.ToNAMoneyFormat(currentBalance, true) + "\nNumber of withdrawals: " + numberOfWithdrawal);
             }
         }
 
@@ -53,12 +51,12 @@ namespace BankingApplication
             if(numberOfWithdrawal > 4)
             {
                 serviceCharge = numberOfWithdrawal - 4;
-                Console.WriteLine("Monthly Service Charge: " + serviceCharge);
+                Console.WriteLine("Monthly Service Charge: " + ExtensionMethods.ToNAMoneyFormat(serviceCharge, true));
                 return base.CloseAndReport();
             }
             else
             {
-                Console.WriteLine("Monthly Service Charge: " + serviceCharge);
+                Console.WriteLine("Monthly Service Charge: " + ExtensionMethods.ToNAMoneyFormat(serviceCharge, true));
                 return base.CloseAndReport();
 
             }

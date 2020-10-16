@@ -175,7 +175,7 @@ namespace BankingApplication
                                 Console.WriteLine(globalSavings.CloseAndReport());
                                 break;
                             case "D":
-                                Console.WriteLine("The balance in USD is: " + globalSavings.USValue(0.76));
+                                Console.WriteLine("The balance in USD is: " + ExtensionMethods.ToNAMoneyFormat(globalSavings.USValue(0.76), true));
                                 break;
                             case "R":
                                 break;

@@ -64,6 +64,12 @@ namespace BankingApplication
             double monthlyInterestRate = annualInterestRate / 12;
             double monthlyInterest = currentBalance * monthlyInterestRate;
             double balance = currentBalance + monthlyInterest;
+
+            Console.WriteLine("-----------------------------------------------------------");
+            Console.WriteLine("Interest Information");
+            Console.WriteLine("The monthly interest: " + ExtensionMethods.ToNAMoneyFormat(monthlyInterest, true));
+            Console.WriteLine("The current balance with monthly interest: " + ExtensionMethods.ToNAMoneyFormat(balance, true));
+            Console.WriteLine("-----------------------------------------------------------");
         }
 
         public virtual string CloseAndReport()
@@ -71,12 +77,12 @@ namespace BankingApplication
             currentBalance -= serviceCharge;
 
             CalculateInterest();
-
+            Console.WriteLine("Close + Report Information\nMonthly Service Charge: " + ExtensionMethods.ToNAMoneyFormat(serviceCharge, true));
             numberOfDeposit = 0;
             numberOfWithdrawal = 0;
             serviceCharge = 0;
 
-            string str = "Previous balance: " + ExtensionMethods.ToNAMoneyFormat(currentBalance - startingBalance , true) +
+            string str = "Previous balance: " + ExtensionMethods.ToNAMoneyFormat(startingBalance, true) +
                          "\nNew balance: " + ExtensionMethods.ToNAMoneyFormat(currentBalance, true) +
                          "\nThe percentage of change from the starting balance to the current balance: " + getPercentageChange() +
                          "%\nTotal amount deposited this month: " + ExtensionMethods.ToNAMoneyFormat(totalDepositAmount, true) +

@@ -9,20 +9,20 @@ namespace BankingApplication
 {
     class SavingsAccount : Account, IAccount
     {
+        Status status = Status.Inactive;
         public SavingsAccount(double val1, double val2) : base(val1, val2)
         {
         }
         public override void MakeDeposit(double amount)
         {
-            if(currentBalance + amount >= 25)
+            if(currentBalance + amount >= 25 && status == Status.Inactive)
             {
-                Status pos = Status.Active;
                 base.MakeDeposit(amount);
                 Console.WriteLine("You have successfully deposited " + ExtensionMethods.ToNAMoneyFormat(amount, true) + " to your savings account.\nYour current balance is now " + ExtensionMethods.ToNAMoneyFormat(currentBalance, true) + "\nNumber of deposits: " + numberOfDeposit);
+                status = Status.Active;
             }
             else
             {
-                Status pos = Status.Inactive;
                 Console.WriteLine("Account is Inactive");
                 base.MakeDeposit(amount);
                 Console.WriteLine("You have successfully deposited " + ExtensionMethods.ToNAMoneyFormat(amount, true) + " to your savings account.\nYour current balance is now " + ExtensionMethods.ToNAMoneyFormat(currentBalance, true) + "\nNumber of deposits: " + numberOfDeposit);
@@ -32,15 +32,12 @@ namespace BankingApplication
 
         public override void MakeWithdrawal(double amount)
         {
-            if(currentBalance - amount >= 25)
+            if(status == Status.Inactive)
             {
-                Status pos = Status.Active;
-                base.MakeWithdrawal(amount);
-                Console.WriteLine("You have successfully withdrawn " + ExtensionMethods.ToNAMoneyFormat(amount, true) + " from your savings account.\nYour current balance is now " + ExtensionMethods.ToNAMoneyFormat(currentBalance, true) + "\nNumber of withdrawals: " + numberOfWithdrawal);
+                Console.WriteLine("Nothing has been withdrawn because your account is inactive.\nYou need to have a balance of more than $25 to be able to withdraw.\nNumber of withdrawals: " + numberOfWithdrawal);
             }
             else
             {
-                Status pos = Status.Inactive;
                 base.MakeWithdrawal(amount);
                 Console.WriteLine("You have successfully withdrawn " + ExtensionMethods.ToNAMoneyFormat(amount, true) + " from your savings account.\nYour current balance is now " + ExtensionMethods.ToNAMoneyFormat(currentBalance, true) + "\nNumber of withdrawals: " + numberOfWithdrawal);
             }
@@ -51,12 +48,10 @@ namespace BankingApplication
             if(numberOfWithdrawal > 4)
             {
                 serviceCharge = numberOfWithdrawal - 4;
-                Console.WriteLine("Monthly Service Charge: " + ExtensionMethods.ToNAMoneyFormat(serviceCharge, true));
                 return base.CloseAndReport();
             }
             else
             {
-                Console.WriteLine("Monthly Service Charge: " + ExtensionMethods.ToNAMoneyFormat(serviceCharge, true));
                 return base.CloseAndReport();
 
             }
